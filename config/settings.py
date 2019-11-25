@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['herokuapp.com']
 
 
 # Application definition
@@ -148,5 +148,5 @@ LOGIN_REDIRECT_URL = 'photos:index'
 
 # heroku settings
 import django_heroku
-django_heroku(locals())
+django_heroku.settings(locals())
 
