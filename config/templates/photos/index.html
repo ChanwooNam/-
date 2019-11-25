@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block css %}
+
+  <!--<link rel="stylesheet" href="{% static 'stylesheets/hover.css'%}">-->
+  <link rel="stylesheet" href="{% static 'stylesheets/mouseover.css'%}">
+  <!--<link rel="stylesheet" href="{% static 'stylesheets/background.css'%}">-->
+
+{% endblock css %}
+
+{% block body %}
+
+
+<h1 class='text-center'>Articles</h1>
+
+<a href="{% url 'photos:create' %}">[NEW]</a>
+<hr>
+
+<div class = "row" id="portfolio">
+  {% for photo in photos %}
+    {% include 'photos/_photo.html' %}
+  {% endfor %}
+  <hr>
+</div>
+
+
+<script>
+  const image = document.getElementById('my-img')
+  image.addEventListener('mouseover', function(){
+    
+    <h5 class="card-title">작성자 : {{ photo.user }}</h5>
+    <h5 class="card-title">사진 : {{ photo.photo }}</h5>
+
+  })
+
+  /* Demo purposes only */
+  $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+
+  
+</script>
+
+{% endblock %}
